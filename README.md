@@ -466,22 +466,6 @@ Each MCP server has boolean simulation flags (`SIMULATE_*`). Flipping them to `f
 
 ---
 
-## 📹 Demo Video
-
-> *Link:* `[To be added before submission]`
-
-**Suggested key moments:**
-- `0:00` — Vault overview in Obsidian (folder structure + Dashboard)
-- `1:30` — Ralph autonomous loop running (watch OODA cycle in terminal)
-- `3:00` — Gmail watcher converting emails to task files
-- `4:30` — HITL approval workflow (create → review → approve → execute)
-- `6:00` — Cross-domain integration dry-run (all 3 workflows)
-- `8:00` — Social media poster (status + generate + approve)
-- `9:30` — CEO briefing generation
-- `11:00` — Dashboard.md live update
-
----
-
 ## 🙏 Acknowledgments
 
 **Hackathon Organiser:** Thank you for an ambitious brief that pushed the boundaries of what a "personal AI employee" can mean. The tiered structure was a brilliant framework for progressive capability building.
