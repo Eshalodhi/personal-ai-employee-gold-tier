@@ -1,0 +1,269 @@
+{
+  "_comment": "Unified Social Media content templates — LinkedIn, Facebook, Twitter, Instagram — AI Employee Vault Gold Tier",
+  "_version": "3.0.0",
+
+  "platforms": {
+    "linkedin": {
+      "char_limit": 3000,
+      "char_recommended": 1300,
+      "hashtag_max": 30,
+      "hashtag_recommended": 5,
+      "tone": "professional, authoritative, insightful",
+      "best_times": ["Tue-Thu 8-10am", "Tue-Thu 12-1pm"],
+      "best_days": ["Tuesday", "Wednesday", "Thursday"],
+      "media": "optional — images/video boost reach 3x",
+      "api_version": "UGC Posts v2"
+    },
+    "twitter": {
+      "char_limit": 280,
+      "char_recommended": 240,
+      "hashtag_max": 3,
+      "hashtag_recommended": 2,
+      "thread_support": true,
+      "tone": "concise, punchy, conversational",
+      "best_times": ["Mon-Fri 8-10am", "Mon-Fri 12-1pm", "Mon-Fri 6-9pm"],
+      "best_days": ["Tuesday", "Wednesday", "Thursday"],
+      "media": "optional — images/GIFs increase engagement 40%",
+      "api_version": "Twitter API v2"
+    },
+    "facebook": {
+      "char_limit": 63206,
+      "char_recommended_text": 80,
+      "char_recommended_media": 250,
+      "hashtag_max": 30,
+      "hashtag_recommended": 3,
+      "tone": "casual, engaging, conversational",
+      "best_times": ["Wed-Sun 1-4pm", "Wed-Sun 9-11am"],
+      "best_days": ["Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "media": "optional — photos get 2.3x more engagement than text posts",
+      "post_types": ["text", "link", "image", "video", "story"],
+      "api_version": "Facebook Graph API v21.0",
+      "key_facts": [
+        "Short posts (1-80 chars) have highest engagement for text-only",
+        "Photos with text get 2.3x more engagement than plain text",
+        "Questions increase comment rate by 100%",
+        "Posts between 5pm-1am get lowest reach — avoid late night",
+        "Native video outperforms YouTube links by 3x in organic reach",
+        "Emoji in the first line boosts reach by up to 57%"
+      ]
+    },
+    "instagram": {
+      "char_limit": 2200,
+      "char_recommended": 500,
+      "hashtag_max": 30,
+      "hashtag_recommended": 20,
+      "tone": "visual-first, authentic, aspirational",
+      "best_times": ["Mon-Fri 9-11am", "Mon-Fri 1-3pm", "Sat-Sun 9-11am"],
+      "best_days": ["Monday", "Tuesday", "Wednesday"],
+      "media": "REQUIRED — image or video is mandatory",
+      "post_types": ["feed", "story", "reel"],
+      "api_version": "Instagram Graph API v21"
+    }
+  },
+
+  "content_templates": {
+
+    "achievement": {
+      "label": "Achievement / Results",
+      "linkedin": {
+        "templates": [
+          "This week our AI Employee system ran autonomously — no micromanagement required.\n\nHere's the actual activity log:\n\n📬 Emails triaged: {{email_count}}\n✅ Tasks completed: {{task_count}}\n📋 Approvals managed: {{approval_count}}\n🔄 Autonomous reasoning cycles: {{cycles}}\n\nEvery task tracked. Every decision logged. Every action auditable.\n\nThis is what intelligent automation looks like when it's built right — not replacing judgment, just removing the routine.\n\nWhat repetitive task is consuming the most of your team's time right now?",
+          "Real numbers from our AI Employee system:\n\nBefore automation:\n→ Hours spent on email triage: too many to count\n→ Tasks falling through the cracks: constantly\n\nAfter:\n→ {{email_count}} emails processed autonomously\n→ {{task_count}} tasks completed without human touch\n→ {{approval_count}} decisions routed for human review\n\nThe AI doesn't make the decisions that matter.\nIt makes sure nothing important is ever missed.\n\nWhat would your team do with that time back?"
+        ],
+        "tone": "data-driven, factual"
+      },
+      "twitter": {
+        "templates": [
+          "Week in numbers for our AI Employee:\n\n📬 {{email_count}} emails triaged\n✅ {{task_count}} tasks completed\n🔄 {{cycles}} autonomous reasoning cycles\n\nZero micromanagement.\n\nThis is what automation should look like. 🧵",
+          "Our AI Employee processed {{task_count}} tasks this week without a single reminder.\n\n→ Nothing missed\n→ Every decision logged\n→ Always auditable\n\nWhat's your team still doing manually that AI could handle?"
+        ],
+        "tone": "punchy, data-driven"
+      },
+      "instagram": {
+        "templates": [
+          "📊 Week in numbers.\n\n{{email_count}} emails triaged automatically. {{task_count}} tasks completed. {{cycles}} autonomous reasoning cycles. Zero micromanagement.\n\nThis is what it looks like when AI actually works for you — not the other way around.\n\nWould you let an AI manage your inbox? Drop a 🤖 below if yes.",
+          "Automation update: our AI Employee handled {{task_count}} tasks this week while we focused on what matters.\n\nThe future of work isn't about replacing people. It's about removing the friction that keeps smart people from doing smart work.\n\nDouble-tap if you're building toward a less chaotic workday ✨"
+        ],
+        "caption_note": "Pair with a clean dashboard screenshot or productivity graphic",
+        "tone": "aspirational, relatable"
+      }
+    },
+
+    "thought_leadership": {
+      "label": "Thought Leadership / Insights",
+      "linkedin": {
+        "templates": [
+          "Unpopular opinion: most AI tools fail not because of the AI — but because of the workflow around it.\n\nHere's what I mean:\n\nYou can't bolt AI onto a broken process and expect magic. The AI just automates the chaos.\n\nWhat actually works:\n1/ Map the workflow FIRST\n2/ Identify the decision points that need human judgment\n3/ Only then add AI for the rest\n\nThe teams winning with AI aren't moving faster — they're moving cleaner.\n\nWhat's one workflow you'd redesign if you started from scratch today?",
+          "After building an AI Employee system, here's the most surprising thing I've learned:\n\nThe hardest part isn't the AI.\nIt's deciding what the AI should NOT do.\n\n{{details}}\n\nWhat decisions in your workflow should always stay human?"
+        ],
+        "tone": "authoritative, reflective"
+      },
+      "twitter": {
+        "templates": [
+          "Most AI implementations fail not because of the AI.\n\nThey fail because the workflow was broken before AI touched it.\n\nYou can't automate chaos. First fix the process. 🧵",
+          "Hot take: the most important AI skill isn't prompting.\n\nIt's knowing what NOT to automate.\n\nSome decisions need a human. Full stop."
+        ],
+        "tone": "bold, opinionated"
+      },
+      "instagram": {
+        "templates": [
+          "The AI lesson nobody talks about:\n\nThe tool is never the problem.\nThe workflow around the tool is.\n\nBefore you add AI, fix the process. Then automate it.\n\nWhat's one thing AI has actually helped you do better? Tell me in the comments 👇",
+          "Counterintuitive truth about automation:\n\nThe goal isn't to eliminate work. It's to eliminate friction so better work can happen.\n\nBiggest AI win this month for us: {{win}}\n\nWhat's yours? 💬"
+        ],
+        "caption_note": "Pair with a minimal text graphic or workspace photo",
+        "tone": "conversational, thought-provoking"
+      }
+    },
+
+    "tip": {
+      "label": "Quick Tip / How-To",
+      "linkedin": {
+        "templates": [
+          "3 things that made our AI automation actually work (most teams skip #2):\n\n1. **Human-in-the-loop first.** Every automated action that touches the outside world requires a human sign-off before it executes. No exceptions.\n\n2. **Audit trail everything.** If you can't explain what the AI did and why, you've lost control. Log every action.\n\n3. **Start small, prove value, then expand.** We started with email triage. Only after that worked did we add scheduling, reporting, and social posting.\n\nWhich one resonates most with where your team is right now?"
+        ],
+        "tone": "helpful, instructional"
+      },
+      "twitter": {
+        "templates": [
+          "3 rules for AI automation that actually works:\n\n1. Human approval before external actions\n2. Log everything (if you can't audit it, you can't trust it)\n3. Start small, prove value, expand\n\nMost teams skip rule 2. Don't. 🧵",
+          "Quick tip for building with AI:\n\nDon't start with \"what can AI do?\"\n\nStart with \"what takes 20% of my time and requires 0% of my judgment?\"\n\nThat's your first automation. Go."
+        ],
+        "tone": "concise, actionable"
+      },
+      "instagram": {
+        "templates": [
+          "AI automation tip that actually works 👇\n\nBefore you automate anything, ask:\n\"Does this decision need human judgment?\"\n\nIf YES → keep human in the loop\nIf NO → automate it\n\nThat simple filter saves you from every AI horror story you've heard.\n\nSave this for your next automation project 📌",
+          "3-second productivity check:\n\nLook at your task list.\nHighlight everything that requires your actual brain.\n\nEverything else?\nThat's your automation backlog.\n\nWhat's on your list right now? 👇"
+        ],
+        "caption_note": "Pair with a clean checklist graphic or split-image comparing before/after",
+        "tone": "educational, relatable"
+      }
+    },
+
+    "behind_the_scenes": {
+      "label": "Behind the Scenes",
+      "linkedin": {
+        "templates": [
+          "Here's how our AI Employee actually works — no hype, just the real architecture:\n\n**The Vault** — an Obsidian folder that acts as the AI's inbox, memory, and action log.\n\n**The Loop** — Ralph (our autonomous agent) runs on an OODA cycle: Observe → Orient → Decide → Act → Reflect.\n\n**The Check** — nothing touches the outside world without a human review. Every approval is logged.\n\n**The Output** — emails handled, reports generated, LinkedIn posts drafted, CEO briefings written.\n\nThe whole thing runs on files. No database. No cloud dependency.\n\nWhat's the simplest AI system you've seen actually work in production?"
+        ],
+        "tone": "transparent, technical-but-accessible"
+      },
+      "twitter": {
+        "templates": [
+          "Behind the scenes of our AI Employee system:\n\n• Inbox = Obsidian folder\n• Brain = OODA loop agent\n• Safety = human-in-the-loop for every external action\n• Memory = plain markdown files\n\nSimplest architecture that actually works. 🧵",
+          "Our AI Employee runs on markdown files.\n\nNo database. No cloud dependency. No magic.\n\nJust a well-designed folder structure and clear rules for the AI.\n\nSometimes simple beats sophisticated."
+        ],
+        "tone": "transparent, builder-to-builder"
+      },
+      "instagram": {
+        "templates": [
+          "Behind the curtain: what our AI Employee actually runs on.\n\nNot a fancy cloud platform.\nNot an expensive enterprise tool.\n\nA folder. A loop. And clear rules about when humans stay in control.\n\nThe best systems are the ones you can explain in 30 seconds.\n\nWhat's the simplest tool in your stack that does the most work? 👇",
+          "Real talk about building with AI:\n\nWe spent 20% of our time on the AI.\nWe spent 80% on the workflow around it.\n\nThat ratio is the secret.\n\nThe AI is only as good as the system it lives in.\n\nBuilders: what's your workflow-to-AI ratio? 🤔"
+        ],
+        "caption_note": "Pair with a architecture diagram screenshot or clean workspace photo",
+        "tone": "authentic, builder-focused"
+      }
+    }
+  },
+
+  "hashtag_suggestions": {
+    "linkedin": {
+      "technology": ["#Tech", "#Technology", "#Innovation", "#DigitalTransformation", "#TechNews"],
+      "ai_ml": ["#AI", "#MachineLearning", "#ArtificialIntelligence", "#GenerativeAI", "#LLM", "#MLOps"],
+      "startup": ["#Startup", "#Entrepreneurship", "#Founder", "#StartupLife", "#VC", "#Growth"],
+      "software": ["#Software", "#SoftwareEngineering", "#DevOps", "#CloudComputing", "#OpenSource"],
+      "business": ["#Business", "#Leadership", "#Management", "#Strategy", "#B2B", "#SaaS"],
+      "career": ["#Career", "#ProfessionalDevelopment", "#JobSearch", "#Hiring", "#WorkLife"],
+      "marketing": ["#Marketing", "#ContentMarketing", "#DigitalMarketing", "#GrowthHacking", "#SEO"],
+      "data": ["#DataScience", "#Analytics", "#BigData", "#DataEngineering", "#Python"],
+      "productivity": ["#Productivity", "#WorkFromHome", "#RemoteWork", "#TimeManagement", "#Automation"],
+      "finance": ["#Finance", "#Fintech", "#Investment", "#Crypto", "#Web3"]
+    },
+    "facebook": {
+      "tech": ["#AI", "#Tech", "#Innovation"],
+      "startup": ["#Startup", "#Entrepreneur", "#SmallBusiness"],
+      "productivity": ["#Productivity", "#WorkFromHome", "#Automation"],
+      "community": ["#Community", "#LocalBusiness", "#Support"]
+    },
+    "twitter": {
+      "tech": ["#AI", "#Tech", "#BuildInPublic"],
+      "startup": ["#Startup", "#Founder", "#SaaS"],
+      "productivity": ["#Productivity", "#Automation", "#WorkSmarter"],
+      "career": ["#Career", "#Learning", "#Growth"],
+      "general": ["#Thread", "#TechTwitter", "#IndieHackers"]
+    },
+    "instagram": {
+      "tech": ["#tech", "#ai", "#artificialintelligence", "#machinelearning", "#coding", "#developer", "#softwareengineering", "#programming"],
+      "startup": ["#startup", "#entrepreneurship", "#founder", "#buildinpublic", "#startuplife", "#hustle", "#growth", "#innovation"],
+      "productivity": ["#productivity", "#worksmarter", "#automation", "#remotework", "#worklife", "#efficiency", "#timemanagement"],
+      "career": ["#career", "#professionaldevelopment", "#worklifebalance", "#success", "#motivation", "#mindset"],
+      "general": ["#business", "#entrepreneur", "#digital", "#future", "#technology", "#leadership"]
+    }
+  },
+
+  "best_practices": {
+    "linkedin": [
+      "Hook in first 2 lines — must earn the 'see more' click",
+      "Use white space and line breaks for readability",
+      "End with a question or CTA to drive engagement",
+      "Post Tue-Thu 8-10am or 12-1pm for maximum reach",
+      "5 relevant hashtags outperform 30 generic ones",
+      "Native video gets 3x more reach than YouTube links",
+      "Respond to every comment within the first hour"
+    ],
+    "twitter": [
+      "Hook in first 5 words — Twitter feeds move fast",
+      "Threads outperform single tweets for complex topics",
+      "Use 1-2 hashtags max — too many looks spammy",
+      "Best time: 8-10am weekdays (audience timezone)",
+      "End threads with a clear CTA or question",
+      "Alt text on images improves accessibility and reach",
+      "Quote-tweet your own thread to boost engagement"
+    ],
+    "facebook": [
+      "Keep text posts under 80 chars for highest engagement",
+      "Photos with captions get 2.3x more reach than text-only",
+      "End with a direct question to drive comments",
+      "Post Wed-Sun between 1-4pm for organic reach",
+      "Native video outperforms YouTube links by 3x",
+      "Avoid posting links in the main post — put them in the first comment",
+      "Emoji in the first line can boost reach by up to 57%"
+    ],
+    "instagram": [
+      "Image/video quality is non-negotiable — blurry = ignored",
+      "First 125 chars of caption show without 'more' — make them count",
+      "20-25 hashtags in first comment (not caption) avoids spammy look",
+      "Stories get 15x more interaction than feed posts",
+      "Reels get 22% more reach than standard video posts",
+      "Post consistently — algorithm rewards frequency",
+      "Use location tags to boost local discoverability"
+    ]
+  },
+
+  "image_requirements": {
+    "instagram_feed": {
+      "square": "1080x1080px (1:1)",
+      "portrait": "1080x1350px (4:5) — most reach",
+      "landscape": "1080x566px (1.91:1)",
+      "formats": ["JPG", "PNG"],
+      "max_size": "30MB"
+    },
+    "instagram_story": {
+      "dimensions": "1080x1920px (9:16)",
+      "formats": ["JPG", "PNG", "MP4"],
+      "max_size": "30MB video, 8MB image",
+      "duration": "up to 60 seconds video"
+    },
+    "twitter": {
+      "image": "1200x675px recommended (16:9)",
+      "formats": ["JPG", "PNG", "GIF", "WEBP"],
+      "max_size": "5MB JPG/PNG, 15MB GIF",
+      "max_images_per_tweet": 4
+    },
+    "linkedin": {
+      "image": "1200x627px recommended",
+      "formats": ["JPG", "PNG", "GIF"],
+      "max_size": "10MB"
+    }
+  }
+}

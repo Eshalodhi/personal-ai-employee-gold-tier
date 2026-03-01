@@ -1,0 +1,16 @@
+{
+  "name": "slack-mcp-server",
+  "version": "1.0.0",
+  "description": "Slack MCP server — Channel messages, DMs, file uploads, mentions, reminders — AI Employee Vault Gold Tier",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {},
+  "keywords": ["mcp", "slack", "team-communication", "ai-employee"],
+  "license": "MIT"
+}

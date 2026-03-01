@@ -1,0 +1,73 @@
+{
+  "_comment": "Ralph Wiggum Autonomous Loop — Gold Tier Configuration",
+  "_docs": "Edit these values to tune Ralph's behaviour. Restart ralph_wiggum_loop.py to apply.",
+
+  "claude_executable": "",
+  "_claude_executable_note": "Leave empty for auto-detection. Set full path to override, e.g. C:\\Users\\YourName\\AppData\\Roaming\\npm\\claude.cmd",
+
+  "loop": {
+    "interval_minutes": 60,
+    "max_actions_per_cycle": 3,
+    "claude_timeout_seconds": 300,
+    "startup_delay_seconds": 5
+  },
+
+  "quiet_hours": {
+    "enabled": true,
+    "start_hour": 23,
+    "end_hour": 6,
+    "_note": "During quiet hours Ralph observes and logs but takes no actions"
+  },
+
+  "priorities": {
+    "high_keyword_score": 100,
+    "normal_score": 50,
+    "low_score": 10,
+    "age_bonus_per_hour": 2,
+    "approval_expiry_urgent_hours": 4,
+    "approval_expiry_score_boost": 200
+  },
+
+  "action_thresholds": {
+    "min_items_for_batch_process": 1,
+    "max_items_for_single_cycle": 10,
+    "plan_required_if_items_above": 5
+  },
+
+  "safety": {
+    "never_send_email_without_approval": true,
+    "never_delete_files": true,
+    "always_plan_multi_step": true,
+    "require_approval_for_bulk_over": 10,
+    "max_consecutive_errors_before_pause": 3
+  },
+
+  "logging": {
+    "ralph_log_dir": "Logs/ralph",
+    "state_file": "Logs/ralph/ralph_state.json",
+    "heartbeat_every_n_cycles": 1,
+    "keep_log_days": 30
+  },
+
+  "actions": {
+    "priority_queue": [
+      "process_urgent_emails",
+      "check_approval_expiry",
+      "process_normal_emails",
+      "generate_morning_briefing",
+      "create_plan_for_complex_items",
+      "generate_evening_summary",
+      "update_dashboard",
+      "health_check"
+    ],
+    "morning_briefing_hour": 8,
+    "evening_summary_hour": 20,
+    "briefing_window_minutes": 90
+  },
+
+  "emergency_keywords": [
+    "urgent", "asap", "critical", "important",
+    "deadline", "emergency", "action required", "action needed",
+    "failed", "error", "alert", "deleted", "security"
+  ]
+}

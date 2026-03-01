@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const {spawnSync:s}=require\\(''child_process''\\); const r=s\\(''git'',[''remote'',''-v''],{encoding:''utf8'',shell:true,cwd:process.cwd\\(\\)}\\); console.log\\(''cwd:'',process.cwd\\(\\)\\); console.log\\(r.stdout||r.stderr\\);\")",
+      "Bash(node:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)",
+      "Bash(echo:*)",
+      "Bash(git -C \"D:/coding/hackaton/hac_0/AI_Employee_Vault\" config core.autocrlf true)",
+      "Bash(git -C \"D:/coding/hackaton/hac_0/AI_Employee_Vault\" add .gitignore)",
+      "Bash(git -C \"D:/coding/hackaton/hac_0/AI_Employee_Vault\" status --short)",
+      "Bash(git -C \"D:/coding/hackaton/hac_0/AI_Employee_Vault\" status)",
+      "Bash(git -C \"D:/coding/hackaton/hac_0/AI_Employee_Vault\" add -A)",
+      "Bash(git -C \"D:/coding/hackaton/hac_0/AI_Employee_Vault\" diff --cached --name-only)",
+      "Bash(git -C \"D:/coding/hackaton/hac_0/AI_Employee_Vault\" add DEMO_VIDEO_SCRIPT.md ralph_state.json .claude/settings.local.json)",
+      "Bash(python3:*)",
+      "Bash(where:*)",
+      "Bash(py:*)"
+    ]
+  }
+}

@@ -1,0 +1,40 @@
+# OAuth credentials — NEVER commit these
+credentials.json
+token.json
+
+# Node modules
+node_modules/
+mcp_servers/*/node_modules/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor
+.vscode/
+*.swp
+*.swo
+
+# Logs that might contain sensitive data
+scheduled_tasks/logs/
+
+# Temporary files
+*.tmp
+*.bak

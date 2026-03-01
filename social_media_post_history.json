@@ -1,0 +1,32 @@
+{
+  "version": "3.0",
+  "created": "2026-02-24T05:00:00Z",
+  "last_updated": "2026-02-24T09:20:43Z",
+  "platforms": {
+    "linkedin": {
+      "total_generated": 0,
+      "total_approved": 0,
+      "total_rejected": 0,
+      "total_posted": 0
+    },
+    "facebook": {
+      "total_generated": 0,
+      "total_approved": 0,
+      "total_rejected": 0,
+      "total_posted": 0
+    },
+    "twitter": {
+      "total_generated": 0,
+      "total_approved": 0,
+      "total_rejected": 0,
+      "total_posted": 0
+    },
+    "instagram": {
+      "total_generated": 0,
+      "total_approved": 0,
+      "total_rejected": 0,
+      "total_posted": 0
+    }
+  },
+  "posts": []
+}

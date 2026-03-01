@@ -1,0 +1,13 @@
+{
+  "name": "social-media-mcp-server",
+  "version": "2.0.0",
+  "description": "Unified Social Media MCP Server — LinkedIn, Twitter, Instagram with HITL approval (Simulation mode). AI Employee Vault Gold Tier.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

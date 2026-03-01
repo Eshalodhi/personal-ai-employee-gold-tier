@@ -1,0 +1,342 @@
+---
+skill_name: CROSS_DOMAIN_INTEGRATION
+version: 1.0
+category: gold_tier
+tier: Gold
+created: 2026-02-27
+depends_on:
+  - HITL_APPROVAL_SKILL
+  - RALPH_WIGGUM_SKILL
+  - EMAIL_WATCHER_SKILL
+  - SOCIAL_MEDIA_AUTOPOSTER_SKILL
+  - WEEKLY_CEO_BRIEFING_SKILL
+  - LOGGER_SKILL
+  - DASHBOARD_UPDATER_SKILL
+---
+
+# Agent Skill: Cross-Domain Integration
+
+> Gold Tier — Personal + Business domain bridge
+
+## Purpose
+
+Cross-Domain Integration is the Gold tier capability that connects the AI Employee's
+personal domain (personal Gmail, local filesystem) with business systems (Google
+Calendar, Google Drive, Business Gmail, Slack team communication).
+
+Where other skills operate within a single domain, this skill orchestrates multi-domain
+workflows — automatically bridging a personal email trigger to a business calendar
+event, or distributing a vault report through Drive and Slack simultaneously.
+
+---
+
+## Domain Map
+
+```
+PERSONAL DOMAIN                      BUSINESS DOMAIN
+━━━━━━━━━━━━━━━━━━━━                 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Personal Gmail                        Business Gmail
+  (gmail_watcher.py)                    (google_workspace_mcp)
+  → EMAIL_*.md in Needs_Action/         → gmail_business_search
+
+Local Filesystem                      Google Calendar
+  (file_ops_mcp)                        (google_workspace_mcp)
+  → Vault structure                     → calendar_list_events
+                                         → calendar_create_event
+
+Ralph Autonomous Loop                 Google Drive
+  (ralph_wiggum_loop.py)                (google_workspace_mcp)
+  → OODA decision engine                → drive_search_files
+                                         → drive_upload_file
+                                         → drive_share_file
+
+Social Media                          Slack Team Communication
+  (social_media_mcp)                    (slack_mcp)
+  → LinkedIn, Facebook,                 → send_channel_message
+    Twitter, Instagram                  → send_dm
+                                         → post_file
+                                         → get_mentions
+                                         → create_reminder
+```
+
+---
+
+## MCP Servers
+
+| Server | Tools | Domain | Config |
+|--------|-------|--------|--------|
+| `email_mcp` | 1 | Personal email sending | Gmail OAuth |
+| `file_ops_mcp` | 5 | Local vault filesystem | No credentials |
+| `social_media_mcp` | 12 | LinkedIn + Facebook + Twitter + Instagram | Platform OAuth |
+| `google_workspace_mcp` | 6 | Calendar + Drive + Business Gmail | Google OAuth |
+| `slack_mcp` | 5 | Slack team communication | Slack Bot Token |
+| **TOTAL** | **29** | **5 domains** | |
+
+---
+
+## Cross-Domain Workflows
+
+### Workflow 1: Personal Email → Business Action
+
+**Trigger:** Urgent email arrives in personal Gmail
+**Domains:** Personal Gmail → Vault → Google Calendar → Slack → Google Drive
+
+```
+gmail_watcher.py detects urgent email
+        │
+        ▼ (creates EMAIL_*.md in Needs_Action/)
+Ralph OBSERVE detects high-priority email
+        │
+        ▼ (OODA: Orient + Decide)
+create Plan in Plans/ (PLAN_CREATOR_SKILL)
+        │
+        ├─▶ calendar_create_event → CALENDAR_EVENT approval file
+        │       (schedule response meeting with stakeholders)
+        │
+        ├─▶ send_channel_message → SLACK_MESSAGE approval file
+        │       (notify team of urgent request)
+        │
+        └─▶ drive_upload_file → DRIVE_UPLOAD approval file
+                (save briefing/notes to shared Drive)
+
+Human reviews 3 approval files → moves to Approved/ → MCP executes
+```
+
+**MCP tools used:** `calendar_create_event`, `send_channel_message`, `drive_upload_file`
+
+**Approval files created:**
+- `Pending_Approval/CALENDAR_EVENT_*.md`
+- `Pending_Approval/SLACK_MESSAGE_*.md`
+- `Pending_Approval/DRIVE_UPLOAD_*.md`
+
+---
+
+### Workflow 2: Business Meeting → Personal Reminder
+
+**Trigger:** Meeting detected on business Google Calendar
+**Domains:** Google Calendar → Business Gmail → Personal Gmail + Slack → Dashboard
+
+```
+calendar_list_events → finds upcoming meeting
+        │
+        ▼
+gmail_business_search → finds related email thread for context
+        │
+        ▼ (enriches reminder with context)
+send_email (email_mcp) → EMAIL_REMINDER approval file
+        (personal Gmail reminder with prep checklist)
+        │
+        ▼
+create_reminder (slack_mcp) → SLACK_REMINDER approval file
+        (Slack reminder for team lead)
+        │
+        ▼
+Dashboard update (DASHBOARD_UPDATER_SKILL)
+        (vault Dashboard shows upcoming commitment)
+
+Human reviews 2 approval files → moves to Approved/ → MCP executes
+```
+
+**MCP tools used:** `calendar_list_events`, `gmail_business_search`, `send_email`, `create_reminder`
+
+**Approval files created:**
+- `Pending_Approval/EMAIL_REMINDER_*.md`
+- `Pending_Approval/SLACK_REMINDER_*.md`
+
+---
+
+### Workflow 3: CEO Briefing Distribution
+
+**Trigger:** Weekly CEO briefing generated by `weekly_ceo_briefing.py`
+**Domains:** Vault Reports → Google Drive → Slack (message + file) → Google Calendar
+
+```
+weekly_ceo_briefing.py generates Reports/CEO_Briefing_YYYY-MM-DD.md
+        │
+        ▼
+drive_search_files → check for existing briefings in Drive
+        │
+        ▼
+drive_upload_file → DRIVE_UPLOAD approval file
+        (upload briefing to shared Drive + share with stakeholders)
+        │
+        ├─▶ send_channel_message → SLACK_MESSAGE approval file
+        │       (announce briefing with highlights in #leadership)
+        │
+        ├─▶ post_file → SLACK_FILE approval file
+        │       (attach full briefing PDF/MD to #leadership)
+        │
+        └─▶ calendar_create_event → CALENDAR_EVENT approval file
+                (schedule briefing review meeting)
+
+Human reviews 4 approval files → moves to Approved/ → MCP executes
+```
+
+**MCP tools used:** `drive_search_files`, `drive_upload_file`, `send_channel_message`, `post_file`, `calendar_create_event`
+
+**Approval files created:**
+- `Pending_Approval/DRIVE_UPLOAD_*.md`
+- `Pending_Approval/SLACK_MESSAGE_*.md`
+- `Pending_Approval/SLACK_FILE_*.md`
+- `Pending_Approval/CALENDAR_EVENT_*.md`
+
+---
+
+## Running the Demo
+
+```bash
+# Run all 3 workflows (creates real approval files in Pending_Approval/)
+python cross_domain_integration_demo.py --workflow all
+
+# Preview without creating files
+python cross_domain_integration_demo.py --workflow all --dry-run
+
+# Run a specific workflow
+python cross_domain_integration_demo.py --workflow 1
+python cross_domain_integration_demo.py --workflow 2
+python cross_domain_integration_demo.py --workflow 3
+```
+
+---
+
+## Ralph Integration
+
+Add cross-domain triggers to Ralph's OODA action cycle:
+
+### Priority Queue Addition (`ralph_config.json`)
+
+```json
+{
+  "actions": {
+    "priority_queue": [
+      "process_urgent_emails",
+      "check_approval_expiry",
+      "cross_domain_email_to_business",
+      "cross_domain_calendar_to_personal",
+      "social_media_autopost",
+      "process_normal_emails",
+      "generate_morning_briefing",
+      "update_dashboard"
+    ]
+  }
+}
+```
+
+### Ralph Prompts for Cross-Domain Actions
+
+| Action | Ralph Claude Prompt |
+|--------|-------------------|
+| `cross_domain_email_to_business` | "Check for urgent emails in Needs_Action/EMAIL_*.md. If any exist, run `python cross_domain_integration_demo.py --workflow 1` to create business calendar event and Slack notification." |
+| `cross_domain_calendar_to_personal` | "Run `python cross_domain_integration_demo.py --workflow 2` to check business calendar for upcoming meetings and create personal reminders." |
+| `cross_domain_ceo_distribution` | "If today is Sunday and CEO briefing was generated this week, run `python cross_domain_integration_demo.py --workflow 3` to distribute via Drive and Slack." |
+
+---
+
+## HITL Safety Model
+
+All cross-domain workflows follow strict HITL gating:
+
+| Action Type | Approval Required | Risk Level |
+|-------------|------------------|------------|
+| Read calendar events | No | None |
+| Search Drive files | No | None |
+| Search business Gmail | No | None |
+| Get Slack mentions | No | None |
+| Create calendar event | **Yes** | Low |
+| Upload file to Drive | **Yes** | Medium |
+| Share Drive file | **Yes** | Medium |
+| Post Slack message | **Yes** | Medium |
+| Send Slack DM | **Yes** | Medium |
+| Post file to Slack | **Yes** | Medium |
+| Create Slack reminder | **Yes** | Low |
+| Send email | **Yes** | High |
+
+**Read operations:** Immediate, no approval file needed.
+**Write operations:** Always create approval file in `Pending_Approval/`. Human moves to `Approved/` to execute.
+
+---
+
+## Cross-Domain Approval File Naming
+
+| Workflow | Action | Approval File Prefix |
+|----------|--------|---------------------|
+| 1 | Calendar event | `CALENDAR_EVENT_WF1_` |
+| 1 | Slack message | `SLACK_MESSAGE_WF1_` |
+| 1 | Drive upload | `DRIVE_UPLOAD_WF1_` |
+| 2 | Email reminder | `EMAIL_REMINDER_WF2_` |
+| 2 | Slack reminder | `SLACK_REMINDER_WF2_` |
+| 3 | Drive upload | `DRIVE_UPLOAD_WF3_` |
+| 3 | Slack channel message | `SLACK_MESSAGE_WF3_` |
+| 3 | Slack file upload | `SLACK_FILE_WF3_` |
+| 3 | Calendar invite | `CALENDAR_EVENT_WF3_` |
+
+All resolved approval files end up in `Done/` for audit trail.
+
+---
+
+## Configuration
+
+All business integrations default to SIMULATION MODE. To go live:
+
+### Google Workspace (Calendar + Drive + Business Gmail)
+
+```bash
+# 1. Complete OAuth setup (see mcp_servers/google_workspace_mcp/README.md)
+# 2. Set environment variables
+set GOOGLE_CLIENT_ID=...
+set GOOGLE_CLIENT_SECRET=...
+set GOOGLE_REFRESH_TOKEN=...
+set BUSINESS_CALENDAR_ID=primary
+set GMAIL_BIZ_USER_ID=business@company.com
+set GMAIL_BIZ_REFRESH_TOKEN=...
+
+# 3. Flip simulation flags in mcp_servers/google_workspace_mcp/index.js
+# SIMULATE_CALENDAR  = false
+# SIMULATE_DRIVE     = false
+# SIMULATE_GMAIL_BIZ = false
+```
+
+### Slack
+
+```bash
+# 1. Create Slack App (see mcp_servers/slack_mcp/README.md)
+# 2. Set environment variables
+set SLACK_BOT_TOKEN=xoxb-...
+set SLACK_TEAM_ID=T...
+set SLACK_BOT_USER_ID=U...
+set SLACK_DEFAULT_CHANNEL=#general
+set SLACK_TEAM_CHANNEL=#ai-employee
+
+# 3. Flip simulation flag in mcp_servers/slack_mcp/index.js
+# SIMULATE_SLACK = false
+```
+
+---
+
+## Safety Rules
+
+1. **NEVER execute a cross-domain write without human approval** — every action that touches an external system requires a file in `Approved/`
+2. **ALWAYS log cross-domain workflow actions** — use LOGGER_SKILL with `action_type: cross_domain_workflow`
+3. **ALWAYS create Plans for multi-step workflows** — use PLAN_CREATOR_SKILL before starting
+4. **NEVER share credentials across domains** — personal Gmail token ≠ business Gmail token
+5. **ALWAYS update Dashboard** after cross-domain workflow completion
+6. **SIMULATION is the safe default** — all cross-domain servers start in simulation mode
+
+---
+
+## Evidence of Implementation
+
+| File | Purpose |
+|------|---------|
+| `mcp_servers/google_workspace_mcp/index.js` | Google Workspace MCP (6 tools) |
+| `mcp_servers/slack_mcp/index.js` | Slack MCP (5 tools) |
+| `cross_domain_integration_demo.py` | End-to-end workflow demonstration |
+| `.claude/mcp_config.json` | All 5 MCP servers registered |
+| `Plans/` | Workflow plans created during demo |
+| `Pending_Approval/` | HITL approval files from demo |
+
+---
+
+*Skill Version: 1.0 | Gold Tier | Cross-Domain Integration*
+*MCP Servers: email_mcp + file_ops_mcp + social_media_mcp + google_workspace_mcp + slack_mcp*
+*Total: 29 active MCP tools across 5 domains*

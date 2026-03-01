@@ -1,0 +1,29 @@
+{
+  "mcpServers": {
+    "email": {
+      "command": "node",
+      "args": ["mcp_servers/email_mcp/index.js"],
+      "cwd": "D:\\coding\\hackaton\\hac_0\\AI_Employee_Vault"
+    },
+    "file-ops": {
+      "command": "node",
+      "args": ["mcp_servers/file_ops_mcp/index.js"],
+      "cwd": "D:\\coding\\hackaton\\hac_0\\AI_Employee_Vault"
+    },
+    "social-media": {
+      "command": "node",
+      "args": ["mcp_servers/social_media_mcp/index.js"],
+      "cwd": "D:\\coding\\hackaton\\hac_0\\AI_Employee_Vault"
+    },
+    "google-workspace": {
+      "command": "node",
+      "args": ["mcp_servers/google_workspace_mcp/index.js"],
+      "cwd": "D:\\coding\\hackaton\\hac_0\\AI_Employee_Vault"
+    },
+    "slack": {
+      "command": "node",
+      "args": ["mcp_servers/slack_mcp/index.js"],
+      "cwd": "D:\\coding\\hackaton\\hac_0\\AI_Employee_Vault"
+    }
+  }
+}

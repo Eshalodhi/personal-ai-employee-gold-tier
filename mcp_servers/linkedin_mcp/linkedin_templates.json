@@ -1,0 +1,121 @@
+{
+  "_comment": "LinkedIn post content templates for AI Employee Vault - Gold Tier",
+  "_version": "1.0.0",
+
+  "post_types": {
+
+    "announcement": {
+      "label": "Announcement",
+      "description": "New product, feature, or company news",
+      "templates": [
+        "Excited to announce {{subject}}!\n\n{{details}}\n\nThis marks a significant milestone for us because {{reason}}.\n\nStay tuned for more updates. {{cta}}",
+        "Big news! We're thrilled to share that {{subject}}.\n\n{{details}}\n\n{{reason}}\n\nLearn more: {{cta}}",
+        "Today, we're launching {{subject}}.\n\n{{details}}\n\nWe built this because {{reason}}. {{cta}}"
+      ],
+      "variables": ["subject", "details", "reason", "cta"],
+      "tone": "enthusiastic",
+      "optimal_length": "150-300 words"
+    },
+
+    "thought_leadership": {
+      "label": "Thought Leadership",
+      "description": "Industry insights, opinions, lessons learned",
+      "templates": [
+        "Here's what {{topic}} taught me about {{lesson}}:\n\n1/ {{point_1}}\n\n2/ {{point_2}}\n\n3/ {{point_3}}\n\nThe bottom line: {{takeaway}}\n\nWhat's your experience with {{topic}}?",
+        "Unpopular opinion: {{opinion}}\n\nHere's why I believe this:\n\n{{reasoning}}\n\nI've seen this play out when {{example}}.\n\nDo you agree? Drop your thoughts below.",
+        "After {{timeframe}} in {{field}}, the most important lesson I've learned:\n\n{{lesson}}\n\nMost people focus on {{common_mistake}}, but the real lever is {{insight}}.\n\n{{closing_thought}}"
+      ],
+      "variables": ["topic", "lesson", "insight", "timeframe", "field"],
+      "tone": "authoritative, reflective",
+      "optimal_length": "200-400 words"
+    },
+
+    "milestone": {
+      "label": "Milestone / Achievement",
+      "description": "Celebrating a goal reached, anniversary, or win",
+      "templates": [
+        "{{milestone}} — and we couldn't have done it without {{acknowledgment}}.\n\nWhen we started, {{origin_story}}.\n\nToday, {{current_state}}.\n\nThank you to everyone who {{contribution}}. This is just the beginning.",
+        "Grateful and humbled: {{milestone}}.\n\nThis journey taught us:\n• {{lesson_1}}\n• {{lesson_2}}\n• {{lesson_3}}\n\nWhat's next: {{future}}.\n\nThank you {{acknowledgment}}.",
+        "{{timeframe}} ago, {{starting_point}}. Today: {{milestone}}.\n\nThe path wasn't linear. {{challenge}} tested us, but {{how_we_overcame}}.\n\nLooking forward to {{next_chapter}}."
+      ],
+      "variables": ["milestone", "acknowledgment", "origin_story", "future"],
+      "tone": "grateful, inspiring",
+      "optimal_length": "150-250 words"
+    },
+
+    "tip": {
+      "label": "Quick Tip / How-To",
+      "description": "Educational content, practical advice, how-to guides",
+      "templates": [
+        "{{tip_count}} tips for {{topic}} that most people overlook:\n\n{{tip_1}}\n\n{{tip_2}}\n\n{{tip_3}}\n\nWhich one resonates most with you?",
+        "How to {{action}} in {{timeframe}}:\n\nStep 1: {{step_1}}\nStep 2: {{step_2}}\nStep 3: {{step_3}}\n\nPro tip: {{pro_tip}}\n\nSave this for later!",
+        "The {{topic}} mistake costing you {{consequence}}:\n\n{{mistake_description}}\n\nInstead, try this:\n{{solution}}\n\nResult: {{outcome}}\n\nHave you run into this?"
+      ],
+      "variables": ["topic", "action", "tip_count"],
+      "tone": "helpful, concise",
+      "optimal_length": "100-200 words"
+    },
+
+    "event": {
+      "label": "Event Promotion",
+      "description": "Webinar, conference, meetup, product launch event",
+      "templates": [
+        "Join us for {{event_name}}!\n\n📅 Date: {{date}}\n⏰ Time: {{time}}\n📍 Location: {{location}}\n\nWhat you'll learn:\n✅ {{learning_1}}\n✅ {{learning_2}}\n✅ {{learning_3}}\n\nRegister here: {{link}}\n\nSpots are limited — secure yours today!",
+        "We're hosting {{event_name}} and you're invited.\n\n{{event_description}}\n\nWhy attend:\n• {{reason_1}}\n• {{reason_2}}\n• {{reason_3}}\n\n📅 {{date}} | {{time}} | {{location}}\n\n{{cta}}: {{link}}",
+        "Mark your calendar! {{event_name}} is {{timeframe}}.\n\n{{teaser}}\n\nSpeakers include: {{speakers}}\n\nDetails & registration: {{link}}\n\nSee you there! 👋"
+      ],
+      "variables": ["event_name", "date", "time", "location", "link"],
+      "tone": "inviting, urgent",
+      "optimal_length": "100-200 words"
+    },
+
+    "hiring": {
+      "label": "Hiring / Recruitment",
+      "description": "Job openings and team growth announcements",
+      "templates": [
+        "We're growing! Looking for a {{role}} to join our team.\n\nWhat you'll do:\n• {{responsibility_1}}\n• {{responsibility_2}}\n• {{responsibility_3}}\n\nWhat we offer:\n✨ {{benefit_1}}\n✨ {{benefit_2}}\n✨ {{benefit_3}}\n\nApply or refer someone: {{link}}\n\nKnow someone great? Tag them below!",
+        "Hiring a {{role}} who loves {{passion}}.\n\nYou'll be working on {{project_description}}.\n\nIdeal candidate: {{ideal_profile}}\n\nApply: {{link}} or DM me directly."
+      ],
+      "variables": ["role", "responsibilities", "benefits", "link"],
+      "tone": "welcoming, professional",
+      "optimal_length": "100-200 words"
+    }
+  },
+
+  "hashtag_suggestions": {
+    "technology": ["#Tech", "#Technology", "#Innovation", "#DigitalTransformation", "#TechNews"],
+    "ai_ml": ["#AI", "#MachineLearning", "#ArtificialIntelligence", "#GenerativeAI", "#LLM", "#MLOps"],
+    "startup": ["#Startup", "#Entrepreneurship", "#Founder", "#StartupLife", "#VC", "#Growth"],
+    "software": ["#Software", "#SoftwareEngineering", "#DevOps", "#CloudComputing", "#OpenSource"],
+    "business": ["#Business", "#Leadership", "#Management", "#Strategy", "#B2B", "#SaaS"],
+    "career": ["#Career", "#ProfessionalDevelopment", "#JobSearch", "#Hiring", "#WorkLife"],
+    "marketing": ["#Marketing", "#ContentMarketing", "#DigitalMarketing", "#GrowthHacking", "#SEO"],
+    "data": ["#DataScience", "#Analytics", "#BigData", "#DataEngineering", "#Python"],
+    "productivity": ["#Productivity", "#WorkFromHome", "#RemoteWork", "#TimeManagement", "#Automation"],
+    "finance": ["#Finance", "#Fintech", "#Investment", "#Crypto", "#Web3"]
+  },
+
+  "visibility_options": {
+    "PUBLIC": "Visible to everyone on LinkedIn and the web",
+    "CONNECTIONS": "Visible to your 1st-degree connections only",
+    "LOGGED_IN": "Visible to all LinkedIn members (signed in)"
+  },
+
+  "post_limits": {
+    "max_characters": 3000,
+    "recommended_max": 1300,
+    "hashtag_max": 30,
+    "hashtag_recommended": 5
+  },
+
+  "best_practices": [
+    "Start with a hook — first 2 lines must earn the 'see more' click",
+    "Use white space and line breaks generously for readability",
+    "End with a question or CTA to drive engagement",
+    "Post between 8–10am or 12–1pm on Tue/Wed/Thu for best reach",
+    "5 relevant hashtags outperform 30 generic ones",
+    "Native video gets 3x more reach than YouTube links",
+    "Tag only people who are genuinely relevant",
+    "Respond to every comment within the first hour"
+  ]
+}
